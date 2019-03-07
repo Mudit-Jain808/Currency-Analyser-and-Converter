@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Currency Statistics </title>
+    <style >
+    #mainbox1
+    {
+      height:150px;
+      width:830px;
+      margin:20px ;
+      float: 300px auto;
+      margin:20px auto;
+      border-radius: 10px;
+      background:#f2f2f2;
+    }
+      #rectangle
+      {
+        height:150px;
+        width:390px;
+        padding:15px;
+        float: left;
+        margin-left: 19px;
+        border-radius: 10px;
+        background: #ff4d4d;
+      }
+      #imagebox1l
+      {
+        height:150px;
+        width:200px;
+        float: left;
+        border-radius: 10px;
+        background: #ff4d4d;
+      }
+      #imagebox1r
+      {
+        height:150px;
+        width:200px;
+        float:right;
+        border-radius: 10px;
+        background: #ff4d4d;
+      }
+    </style>
+
+    <style >
+    #mainbox2
+    {
+      height:180px;
+      width:830px;
+      margin:20px ;
+      float: 300px auto;
+      margin:20px auto;
+      border-radius: 10px;
+      background:#f2f2f2;
+    }
+      #rectangle2
+      {
+        height:180px;
+        width:390px;
+        padding:15px;
+        float: left;
+        margin-left: 19px;
+        border-radius: 10px;
+        background: #9fff80;
+      }
+      #imagebox2l
+      {
+        height:150px;
+        width:200px;
+        margin-top: 15px;
+        float: left;
+        border-radius: 10px;
+        background: #ff4d4d;
+      }
+      #imagebox2r
+      {
+        height:150px;
+        width:200px;
+        margin-top: 15px;
+        float:right;
+        border-radius: 10px;
+        background: #ff4d4d;
+      }
+    </style>
+    <style >
+    #mainbox3
+    {
+      height:350px;
+      width:870px;
+      margin:20px ;
+      float: 300px auto;
+      margin:20px auto;
+      border-radius: 10px;
+      background: #f2f2f2;
+    }
+      #rectangle3
+      {
+        height:350px;
+        width:390px;
+        padding:15px;
+        float: left;
+        margin-left: 20px;
+        border-radius: 10px;
+        background: orange;
+      }
+      #imagebox3l
+      {
+        height:150px;
+        width:200px;
+        margin-left: 20px;
+        margin-top: 100px;
+        float: left;
+        border-radius: 10px;
+        background: #ff4d4d;
+      }
+      #imagebox3r
+      {
+        height:150px;
+        width:200px;
+        margin-top: 100px;
+        margin-right: 20px;
+        float:right;
+        border-radius: 10px;
+        background: #ff4d4d;
+      }
+      .header {
+       background-color: #f1f1f1;
+       padding: 20px;
+       text-align: center;
+     }
+      .header1 {
+       background-color: #f1f1f1;
+       padding: 20px;
+       height:160px;
+       text-align: center;
+       background-image: url("E:\\Currency Analyser and Converter\\header.jpg");
+      }
+    </style>
+  </head>
+  <body onload "convertCurrency();">
+  <div class="header">
+  <h1 style="color:#0000000;">Wanna go abroad!! Check how much buck's you got. </h1>
+</div>
+<div class="header1">
+<h1 style="color:#000000;"> </h1>
+</div>
+   <div id = "mainbox1">
+   <div id ="imagebox1l"><img id="imageToSwap" src="E:\\Currency Analyser and Converter\\flag\\USD.jpg" />  </div>
+     <div id= "rectangle">
+        <h2>Convert your currency!</h2>
+        <table>
+        <tr>
+          <td>
+        <select id="convertfrom" onchange="convertCurrency();">
+           <option value="EUR" value="">Euro(EUR)</option>
+           <option value="AUD">Australian Dollar(AUD)</option>
+           <option value="BGN">Bulgarian Lev(BGN)</option>
+           <option value="BRL">Brazilian Real(BRL)</option>
+           <option value="CAD">Canadian Dollar(CAD)</option>
+           <option value="CHF">Swiss Franc(CHF)</option>
+           <option value="CNY">Renminbi (Yuan)(CNY)</option>
+           <option value="CZK">Czech Koruna(CZK)</option>
+           <option value="DKK">Danish Krone(DKK)</option>
+           <option value="GBP">Pound Sterling(GBP)</option>
+           <option value="HKD">	Hong Kong Dolla(HKD)</option>
+           <option value="HRK">Croatian Kuna(HRK)</option>
+           <option value="HUF">Forint(HUF)</option>
+           <option value="IDR" >Rupiah(IDR)</option>
+           <option value="ILS">New Israeli Sheqe(ILS)</option>
+           <option value="INR">Indian Rupee(INR)</option>
+           <option value="ISK">Iceland Krona(ISK)</option>
+           <option value="JPY">Yen(JPY)</option>
+           <option value="KRW">Won(KRW)</option>
+           <option value="MXN">Mexican Peso(MXN)</option>
+           <option value="MYR">Malaysian Ringgit(MYR)</option>
+           <option value="NOK">Norwegian Krone(NOK)</option>
+           <option value="NZD">New Zealand Dollar(NZD)</option>
+           <option value="PHP">Philippine Peso(PHP)</option>
+           <option value="PLN">Zloty(PLN)</option>
+           <option value="RON"> Romanian Leu(RON)</option>
+           <option value="RUB">Russian Ruble(RUB)</option>
+           <option value="SEK">Swedish Krona(SEK)</option>
+           <option value="SGD">Singapore Dollar(SGD)</option>
+           <option value="THB">Thai Baht(THB)</option>
+           <option value="TRY">Turkish Lira(TRY)</option>
+           <option value="USD"selected >US Dollar(USD)</option>
+           <option value="ZAR">Rand(ZAR)</option>
+         </select>
+          </td>
+          <td> &nbsp;&nbsp;&nbsp;<input id="convertAmountfrom" type"=text" size="10" value="1" onkeyup="convertCurrency();" /></td>
+          </tr>
+          <tr>
+            <td>
+          <select id="convertto" onchange="convertCurrency();">
+            <option value="INR"selected >Indian Rupee(INR)</option>
+             <option value="EUR">Euro(EUR)</option>
+             <option value="AUD">Australian Dollar(AUD)</option>
+             <option value="BGN">Bulgarian Lev(BGN)</option>
+             <option value="BRL">Brazilian Real(BRL)</option>
+             <option value="CAD">Canadian Dollar(CAD)</option>
+             <option value="CHF">Swiss Franc(CHF)</option>
+             <option value="CNY">Renminbi (Yuan)(CNY)</option>
+             <option value="CZK">Czech Koruna(CZK)</option>
+             <option value="DKK">Danish Krone(DKK)</option>
+             <option value="GBP">Pound Sterling(GBP)</option>
+             <option value="HKD">	Hong Kong Dolla(HKD)</option>
+             <option value="HRK">Croatian Kuna(HRK)</option>
+             <option value="HUF">Forint(HUF)</option>
+             <option value="IDR" >Rupiah(IDR)</option>
+             <option value="ILS">New Israeli Sheqe(ILS)</option>
+             <option value="ISK">Iceland Krona(ISK)</option>
+             <option value="JPY">Yen(JPY)</option>
+             <option value="KRW">Won(KRW)</option>
+             <option value="MXN">Mexican Peso(MXN)</option>
+             <option value="MYR">Malaysian Ringgit(MYR)</option>
+             <option value="NOK">Norwegian Krone(NOK)</option>
+             <option value="NZD">New Zealand Dollar(NZD)</option>
+             <option value="PHP">Philippine Peso(PHP)</option>
+             <option value="PLN">Zloty(PLN)</option>
+             <option value="RON"> Romanian Leu(RON)</option>
+             <option value="RUB">Russian Ruble(RUB)</option>
+             <option value="SEK">Swedish Krona(SEK)</option>
+             <option value="SGD">Singapore Dollar(SGD)</option>
+             <option value="THB">Thai Baht(THB)</option>
+             <option value="TRY">Turkish Lira(TRY)</option>
+             <option value="USD" >US Dollar(USD)</option>
+             <option value="ZAR">Rand(ZAR)</option>
+           </select>
+            </td>
+            <td> &nbsp;&nbsp;&nbsp;<input id="convertAmountto" type"=text" size = "10"  disabled/></td>
+            </tr>
+            </table>
+       </div>
+    <div id = "imagebox1r"><img id="imageToSwapr" src="E:\\Currency Analyser and Converter\\flag\\INR.jpg" /></div>
+  </div>
+
+
+  <script>
+function convertCurrency()
+{
+  var image = document.getElementById("imageToSwap");
+	var dropd = document.getElementById("convertfrom");
+	image.src = "E:\\ccl\\flag\\"+dropd.value+".jpg";
+  var image = document.getElementById("imageToSwapr");
+	var dropd = document.getElementById("convertto");
+	image.src = "E:\\ccl\\flag\\"+dropd.value+".jpg";
+  var convertfrom=document.getElementById("convertfrom").value;
+  var convertto=document.getElementById("convertto").value;
+  var xmlhttp=new XMLHttpRequest();
+  var url = "https://ratesapi.io/api/latest?base="+convertfrom+"&symbols="+convertto;
+  xmlhttp.open("GET",url, true);
+  xmlhttp.send();
+  xmlhttp.onreadystatechange = function(){
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    {
+      var result = xmlhttp.responseText;
+
+      var jsResult = JSON.parse(result);
+     var oneunit = jsResult.rates[convertto];
+      var amount = document.getElementById("convertAmountfrom").value;
+      document.getElementById("convertAmountto").value = (oneunit*amount).toFixed(3);
+    }
+  }
+}
+    </script>
+    <div id = "mainbox2" >
+      <div id = "imagebox2l" ><img id="imageToSwap2l" src="E:\\Currency Analyser and Converter\\flag\\USD.jpg" /></div>
+    <div id= "rectangle2">
+        <h2>Past Currency Rates</h2>
+        <table>
+          <tr>
+            <td>
+              <p><b>Date:</b>
+              <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+              <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+              <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
+              <script>
+                $( document ).ready(function() {
+                  $("#from-datepicker").datepicker({
+                    format: 'yyyy-mm-dd'
+                  });
+                  $("#from-datepicker").on("change", function () {
+                    var fromdate = $(this).val();
+                    });
+                  });
+              </script>
+              <input type="date" id="from-datepicker" onchange="update();" />
+              </p>
+            </td>
+          </tr>
+        <tr>
+          <td>
+          <select id="convertdatefrom" onchange="convertDateCurrency();">
+           <option value="EUR">Euro(EUR)</option>
+           <option value="AUD">Australian Dollar(AUD)</option>
+           <option value="BGN">Bulgarian Lev(BGN)</option>
+           <option value="BRL">Brazilian Real(BRL)</option>
+           <option value="CAD">Canadian Dollar(CAD)</option>
+           <option value="CHF">Swiss Franc(CHF)</option>
+           <option value="CNY">Renminbi (Yuan)(CNY)</option>
+           <option value="CZK">Czech Koruna(CZK)</option>
+           <option value="DKK">Danish Krone(DKK)</option>
+           <option value="GBP">Pound Sterling(GBP)</option>
+           <option value="HKD">	Hong Kong Dolla(HKD)</option>
+           <option value="HRK">Croatian Kuna(HRK)</option>
+           <option value="HUF">Forint(HUF)</option>
+           <option value="IDR" >Rupiah(IDR)</option>
+           <option value="ILS">New Israeli Sheqe(ILS)</option>
+           <option value="INR">Indian Rupee(INR)</option>
+           <option value="ISK">Iceland Krona(ISK)</option>
+           <option value="JPY">Yen(JPY)</option>
+           <option value="KRW">Won(KRW)</option>
+           <option value="MXN">Mexican Peso(MXN)</option>
+           <option value="MYR">Malaysian Ringgit(MYR)</option>
+           <option value="NOK">Norwegian Krone(NOK)</option>
+           <option value="NZD">New Zealand Dollar(NZD)</option>
+           <option value="PHP">Philippine Peso(PHP)</option>
+           <option value="PLN">Zloty(PLN)</option>
+           <option value="RON"> Romanian Leu(RON)</option>
+           <option value="RUB">Russian Ruble(RUB)</option>
+           <option value="SEK">Swedish Krona(SEK)</option>
+           <option value="SGD">Singapore Dollar(SGD)</option>
+           <option value="THB">Thai Baht(THB)</option>
+           <option value="TRY">Turkish Lira(TRY)</option>
+           <option value="USD"selected >US Dollar(USD)</option>
+           <option value="ZAR">Rand(ZAR)</option>
+         </select>
+          </td>
+          <td> <input id="convertdateAmountfrom" type"=text" size="10" value="1" onkeyup="convertDateCurrency();" /></td>
+          </tr>
+          <tr>
+            <td>
+          <select id="convertdateto" onchange="convertDateCurrency();">
+            <option value="INR"selected>Indian Rupee(INR)</option>
+             <option value="EUR">Euro(EUR)</option>
+             <option value="AUD">Australian Dollar(AUD)</option>
+             <option value="BGN">Bulgarian Lev(BGN)</option>
+             <option value="BRL">Brazilian Real(BRL)</option>
+             <option value="CAD">Canadian Dollar(CAD)</option>
+             <option value="CHF">Swiss Franc(CHF)</option>
+             <option value="CNY">Renminbi (Yuan)(CNY)</option>
+             <option value="CZK">Czech Koruna(CZK)</option>
+             <option value="DKK">Danish Krone(DKK)</option>
+             <option value="GBP">Pound Sterling(GBP)</option>
+             <option value="HKD">	Hong Kong Dolla(HKD)</option>
+             <option value="HRK">Croatian Kuna(HRK)</option>
+             <option value="HUF">Forint(HUF)</option>
+             <option value="IDR" >Rupiah(IDR)</option>
+             <option value="ILS">New Israeli Sheqe(ILS)</option>
+             <option value="ISK">Iceland Krona(ISK)</option>
+             <option value="JPY">Yen(JPY)</option>
+             <option value="KRW">Won(KRW)</option>
+             <option value="MXN">Mexican Peso(MXN)</option>
+             <option value="MYR">Malaysian Ringgit(MYR)</option>
+             <option value="NOK">Norwegian Krone(NOK)</option>
+             <option value="NZD">New Zealand Dollar(NZD)</option>
+             <option value="PHP">Philippine Peso(PHP)</option>
+             <option value="PLN">Zloty(PLN)</option>
+             <option value="RON"> Romanian Leu(RON)</option>
+             <option value="RUB">Russian Ruble(RUB)</option>
+             <option value="SEK">Swedish Krona(SEK)</option>
+             <option value="SGD">Singapore Dollar(SGD)</option>
+             <option value="THB">Thai Baht(THB)</option>
+             <option value="TRY">Turkish Lira(TRY)</option>
+             <option value="USD">US Dollar(USD)</option>
+             <option value="ZAR">Rand(ZAR)</option>
+           </select>
+            </td>
+            <td> <input id="convertdateAmountto" type"=text" size = "10"  disabled/></td>
+            </tr>
+            </table>
+
+    </div>
+        <div id = "imagebox2r"><img id="imageToSwapr2r" src="E:\\Currency Analyser and Converter\\flag\\INR.jpg" /></div>
+  </div>
+    <script>
+    function update()
+    {  var todayyear = new Date();
+       var todaymonth = new Date();
+       var todaydate = new Date();
+       var month = todaymonth.getMonth()+1;
+       var date = todaydate.getDate()
+       if(month<10){
+         newmonth="0"+month;
+       }
+       else{
+         newmonth=month;
+       }
+       if(date<10){
+         date="0"+date;
+       }
+       today = todayyear.getFullYear()+"-"+newmonth+"-"+date;
+       var targetdate=document.getElementById("from-datepicker").value;
+       if(today<targetdate)
+         {
+           alert("Please enter correct date");
+           document.getElementById("convertdateAmountto").value = 0.000;
+         }
+        else
+          convertDateCurrency();
+    }
+  function convertDateCurrency()
+  {
+    var image = document.getElementById("imageToSwap2l");
+  	var dropd = document.getElementById("convertdatefrom");
+  	image.src = "E:\\ccl\\flag\\"+dropd.value+".jpg";
+    var image = document.getElementById("imageToSwapr2r");
+  	var dropd = document.getElementById("convertdateto");
+  	image.src = "E:\\ccl\\flag\\"+dropd.value+".jpg";
+    var convertdatefrom=document.getElementById("convertdatefrom").value;
+    var convertdateto=document.getElementById("convertdateto").value;
+    var convertdate=document.getElementById("from-datepicker").value;
+    var xmlhttp=new XMLHttpRequest();
+    var url = "https://ratesapi.io/api/"+convertdate+"?base="+convertdatefrom+"&symbols="+convertdateto;
+    xmlhttp.open("GET",url, true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function(){
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    {
+      var result = xmlhttp.responseText;
+      var jsResult = JSON.parse(result);
+      var oneunit = jsResult.rates[convertdateto];
+      var amount = document.getElementById("convertdateAmountfrom").value;
+      document.getElementById("convertdateAmountto").value = (oneunit*amount).toFixed(3);
+    }
+  }
+  }
+    </script>
+    <div id = "mainbox3">
+    <div id = "imagebox3l"><img id="imageToSwap3l" src="E:\\Currency Analyser and Converter\\flag\\USD.jpg" /></div>
+    <div id= "rectangle3">
+        <h2>Change in currency over time</h2>
+        <table>
+          <tr>
+            <td>
+              <p><b>Initial Date:</b>
+              <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+              <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+              <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
+              <script>
+                $( document ).ready(function() {
+                  $("#from-datepicker1").datepicker({
+                    format: 'yyyy-mm-dd'
+                  });
+                  $("#from-datepicker1").on("change", function () {
+                    var fromdate = $(this).val();
+                    });
+                  });
+              </script>
+              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="date" id="from-datepicker1"  />
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>Final Date:</b>
+              <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+              <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+              <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
+              <script>
+                $( document ).ready(function() {
+                  $("#from-datepicker2").datepicker({
+                    format: 'yyyy-mm-dd'
+                  });
+                  $("#from-datepicker2").on("change", function () {
+                    var fromdate = $(this).val();
+                    });
+                  });
+              </script>
+              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="date" id="from-datepicker2"  />
+              </p>
+            </td>
+          </tr>
+        <tr>
+          <td>
+           <p><b>Priamary Currency:</b>
+              &nbsp;&nbsp;&nbsp;
+          <select id="currencybox1" onchange="updateflag()">
+           <option value="EUR">Euro(EUR)</option>
+           <option value="AUD">Australian Dollar(AUD)</option>
+           <option value="BGN">Bulgarian Lev(BGN)</option>
+           <option value="BRL">Brazilian Real(BRL)</option>
+           <option value="CAD">Canadian Dollar(CAD)</option>
+           <option value="CHF">Swiss Franc(CHF)</option>
+           <option value="CNY">Renminbi (Yuan)(CNY)</option>
+           <option value="CZK">Czech Koruna(CZK)</option>
+           <option value="DKK">Danish Krone(DKK)</option>
+           <option value="GBP">Pound Sterling(GBP)</option>
+           <option value="HKD">	Hong Kong Dolla(HKD)</option>
+           <option value="HRK">Croatian Kuna(HRK)</option>
+           <option value="HUF">Forint(HUF)</option>
+           <option value="IDR" >Rupiah(IDR)</option>
+           <option value="ILS">New Israeli Sheqe(ILS)</option>
+           <option value="INR">Indian Rupee(INR)</option>
+           <option value="ISK">Iceland Krona(ISK)</option>
+           <option value="JPY">Yen(JPY)</option>
+           <option value="KRW">Won(KRW)</option>
+           <option value="MXN">Mexican Peso(MXN)</option>
+           <option value="MYR">Malaysian Ringgit(MYR)</option>
+           <option value="NOK">Norwegian Krone(NOK)</option>
+           <option value="NZD">New Zealand Dollar(NZD)</option>
+           <option value="PHP">Philippine Peso(PHP)</option>
+           <option value="PLN">Zloty(PLN)</option>
+           <option value="RON"> Romanian Leu(RON)</option>
+           <option value="RUB">Russian Ruble(RUB)</option>
+           <option value="SEK">Swedish Krona(SEK)</option>
+           <option value="SGD">Singapore Dollar(SGD)</option>
+           <option value="THB">Thai Baht(THB)</option>
+           <option value="TRY">Turkish Lira(TRY)</option>
+           <option value="USD" selected>US Dollar(USD)</option>
+           <option value="ZAR">Rand(ZAR)</option>
+         </select>
+           </p>
+          </td>
+          </tr>
+          <td>
+            <tr>
+              <td>
+               <p><b>Secondary Currency:</b>
+              <select id="currencybox2" onchange="updateflag()">
+               <option value="EUR">Euro(EUR)</option>
+               <option value="AUD">Australian Dollar(AUD)</option>
+               <option value="BGN">Bulgarian Lev(BGN)</option>
+               <option value="BRL">Brazilian Real(BRL)</option>
+               <option value="CAD">Canadian Dollar(CAD)</option>
+               <option value="CHF">Swiss Franc(CHF)</option>
+               <option value="CNY">Renminbi (Yuan)(CNY)</option>
+               <option value="CZK">Czech Koruna(CZK)</option>
+               <option value="DKK">Danish Krone(DKK)</option>
+               <option value="GBP">Pound Sterling(GBP)</option>
+               <option value="HKD">	Hong Kong Dolla(HKD)</option>
+               <option value="HRK">Croatian Kuna(HRK)</option>
+               <option value="HUF">Forint(HUF)</option>
+               <option value="IDR" >Rupiah(IDR)</option>
+               <option value="ILS">New Israeli Sheqe(ILS)</option>
+               <option value="INR"selected>Indian Rupee(INR)</option>
+               <option value="ISK">Iceland Krona(ISK)</option>
+               <option value="JPY">Yen(JPY)</option>
+               <option value="KRW">Won(KRW)</option>
+               <option value="MXN">Mexican Peso(MXN)</option>
+               <option value="MYR">Malaysian Ringgit(MYR)</option>
+               <option value="NOK">Norwegian Krone(NOK)</option>
+               <option value="NZD">New Zealand Dollar(NZD)</option>
+               <option value="PHP">Philippine Peso(PHP)</option>
+               <option value="PLN">Zloty(PLN)</option>
+               <option value="RON"> Romanian Leu(RON)</option>
+               <option value="RUB">Russian Ruble(RUB)</option>
+               <option value="SEK">Swedish Krona(SEK)</option>
+               <option value="SGD">Singapore Dollar(SGD)</option>
+               <option value="THB">Thai Baht(THB)</option>
+               <option value="TRY">Turkish Lira(TRY)</option>
+               <option value="USD" >US Dollar(USD)</option>
+               <option value="ZAR">Rand(ZAR)</option>
+             </select>
+               </p>
+              </td>
+              </tr>
+              <td>
+      </table>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button"  onclick="checkdate()">Calculate </button>
+    <table>
+     <tr>
+        <td>
+          <p><b>Change in given Time Period:</b>
+            <input id="currencyshowdiff" type"=text" size="10" disabled /></td>
+            </p>
+        </td>
+      </tr>
+</table>
+    </div>
+    <div id = "imagebox3r"><img id="imageToSwap3r" src="E:\\Currency Analyser and Converter\\flag\\INR.jpg" /></div>
+  </div>
+    <script>
+    function updateflag()
+    {
+      var image = document.getElementById("imageToSwap3l");
+      var dropd = document.getElementById("currencybox1");
+      image.src = "E:\\ccl\\flag\\"+dropd.value+".jpg";
+      var image = document.getElementById("imageToSwap3r");
+      var dropd = document.getElementById("currencybox2");
+      image.src = "E:\\ccl\\flag\\"+dropd.value+".jpg";
+    }
+    </script>
+    <script>
+    function checkdate()
+    {  var todayyear = new Date();
+       var todaymonth = new Date();
+       var todaydate = new Date();
+       var month = todaymonth.getMonth()+1;
+       var date = todaydate.getDate()
+       if(month<10){
+         newmonth="0"+month;
+       }
+       else{
+         newmonth=month;
+       }
+       if(date<10){
+         date="0"+date;
+       }
+       today = todayyear.getFullYear()+"-"+newmonth+"-"+date;
+       var targetdate=document.getElementById("from-datepicker1").value;
+       var targetdate2=document.getElementById("from-datepicker2").value;
+       if(today<targetdate)
+         {
+           alert("Please enter correct date");
+         }
+      else {
+
+        if(today<targetdate2)
+        alert("Please enter correct date");
+        else
+          currencydiff();
+      }
+
+    }
+  function currencydiff()
+  {
+  var date1=document.getElementById("from-datepicker1").value;
+  var date2=document.getElementById("from-datepicker2").value;
+  var basecurrencytype=document.getElementById("currencybox1").value;
+  var currencytype=document.getElementById("currencybox2").value;
+  var amount1;
+  var amount2;
+  var xmlhttp=new XMLHttpRequest();
+  var url1 = "https://ratesapi.io/api/"+date1+"?base="+basecurrencytype+"&symbols="+currencytype;
+  xmlhttp.open("GET",url1, true);
+  xmlhttp.send();
+  xmlhttp.onreadystatechange = function()
+  {
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    {
+      var result = xmlhttp.responseText;
+
+      var jsResult = JSON.parse(result);
+     amount1 = jsResult.rates[currencytype];
+     }
+  }
+  var xmlhttp2=new XMLHttpRequest();
+  var url2 = "https://ratesapi.io/api/"+date2+"?base="+basecurrencytype+"&symbols="+currencytype;
+  xmlhttp2.open("GET",url2, true);
+  xmlhttp2.send();
+  xmlhttp2.onreadystatechange = function()
+  {
+    if(xmlhttp2.readyState == 4 && xmlhttp2.status == 200)
+    {
+      var result = xmlhttp2.responseText;
+      var jsResult = JSON.parse(result);
+     amount2 = jsResult.rates[currencytype];
+     var diff = amount2-amount1;
+     document.getElementById("currencyshowdiff").value = diff.toFixed(3);
+   }
+  }
+  }
+    </script>
+  </body>
+</html>
